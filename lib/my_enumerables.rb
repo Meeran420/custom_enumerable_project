@@ -55,6 +55,14 @@ module Enumerable
     return c
   end
 
+  def my_map(&block)
+    return self unless block_given?
+
+    arr = []
+    my_each { |v| arr << block.call(v)}
+    arr
+  end
+
 end
 
 class Array
