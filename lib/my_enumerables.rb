@@ -31,10 +31,17 @@ module Enumerable
     end
   end
 
+  def my_any?
+    return self unless block_given?
+
+    my_each { |v| return true if yield v}
+    return false
+  end
+
 end
 
 class Array
-  
+
   def my_each
     return self unless block_given?
 
