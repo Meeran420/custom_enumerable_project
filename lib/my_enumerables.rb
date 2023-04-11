@@ -17,4 +17,16 @@ class Array
 
     self
   end
+
+  def my_each_with_index
+    return self unless block_given?
+
+    i = 0
+    for value in self do
+      yield value, i
+      i += 1
+    end
+
+    self
+  end
 end
