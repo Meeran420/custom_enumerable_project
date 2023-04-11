@@ -41,11 +41,7 @@ module Enumerable
   def my_none?
     return self unless block_given?
 
-    my_each do |v|
-      if yield v
-        return false
-      end
-    end
+    my_each { |v| return false if yield v}
 
     true
   end
