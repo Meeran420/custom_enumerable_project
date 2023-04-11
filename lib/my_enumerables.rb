@@ -63,6 +63,13 @@ module Enumerable
     arr
   end
 
+  def my_inject(sum=0, &block)
+    return self unless block_given?
+
+    my_each { |v| sum = block.call(sum, v)}
+    sum
+  end
+
 end
 
 class Array
