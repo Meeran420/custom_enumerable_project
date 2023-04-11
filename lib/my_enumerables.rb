@@ -38,4 +38,14 @@ class Array
 
     arr
   end
+
+  def my_all?
+    unless block_given?
+      my_each { |v| return false unless v}
+      return true
+    else
+      my_each { |v| return false unless yield v}
+      return true
+    end
+  end
 end
