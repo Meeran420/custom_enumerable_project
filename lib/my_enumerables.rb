@@ -38,6 +38,18 @@ module Enumerable
     return false
   end
 
+  def my_none?
+    return self unless block_given?
+
+    my_each do |v|
+      if yield v
+        return false
+      end
+    end
+
+    true
+  end
+
 end
 
 class Array
