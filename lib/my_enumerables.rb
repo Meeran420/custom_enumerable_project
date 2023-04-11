@@ -29,4 +29,13 @@ class Array
 
     self
   end
+
+  def my_select
+    return self unless block_given?
+    arr = []
+
+    my_each { |value| arr << value if yield value}
+
+    arr
+  end
 end
