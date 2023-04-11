@@ -46,6 +46,15 @@ module Enumerable
     true
   end
 
+  def my_count
+    return self.length unless block_given?
+
+    c = 0
+    my_each { |v| c += 1 if yield v}
+    
+    return c
+  end
+
 end
 
 class Array
